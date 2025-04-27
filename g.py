@@ -45,9 +45,13 @@ async def update_user(user_id, coins):
 async def start(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     message = (
-        "*❄️ WELCOME TO ULTIMATE UDP FLOODER ❄️*\n\n"
-        "*🔥 Yeh bot apko deta hai hacking ke maidan mein asli mazza! 🔥*\n\n"
-        "Use /help to see all commands."
+        "*❄️ 𝗛𝗜 𝗜 𝗔𝗠 𝗨𝗗𝗣 𝗕𝗔𝗦𝗘𝗗 𝗗𝗗𝗢𝗦 𝗕𝗢𝗧 ❄️*\n\n"
+        "*🔥 𝕋𝕆 𝕌𝕊𝔼 𝕄𝔼 ℍ𝔼ℝ𝔼 𝔸ℝ𝔼 𝕄𝕐 𝔸𝕃𝕃 ℂ𝕄𝔻🔥*\n\n"
+        "/𝕒𝕥𝕥𝕒𝕔𝕜 𝔽𝕆ℝ 𝔹𝔾𝕄𝕀 𝕊𝔼ℝ𝕍𝔼ℝ*\n\n"
+        "/𝕔𝕠𝕚𝕟 𝕒𝕕𝕕 𝕋𝕆 𝔸𝔻𝔻 ℂ𝕆𝕀ℕ𝕊*\n\n"
+        "/𝕔𝕠𝕚𝕟 𝕣𝕖𝕞 𝕋𝕆 ℝ𝔼𝕄𝕆𝕍𝔼 ℂ𝕆𝕀ℕ𝕊*\n\n"
+        "/𝕦𝕡𝕥𝕚𝕞𝕖 𝕄𝕐 𝕌ℙ𝕋𝕀𝕄𝔼\n\n\n"
+        "ᴍʏ ᴀʙɪʟɪᴛʏ ɪꜱ ᴛᴏ ꜱᴇɴᴅ 15 ᴍʙ ᴏꜰ ᴏᴜᴛɢᴏɪɴɢ ᴅᴀᴛᴀ ᴀɴᴅ 999 ᴛʜʀᴇᴀᴅꜱ\nʏᴏᴜ ᴍᴀʏ ʀᴇᴄᴇɪᴠᴇ ɪᴛ ᴇᴀʀʟɪᴇʀ, ꜱᴏ ɪᴛ ᴡᴏɴ’ᴛ ꜰʟᴜᴄᴛᴜᴀᴛᴇ. ɪꜰ ʏᴏᴜ\nᴄʟɪᴄᴋ ᴏɴ ᴛʜᴀᴛ, ʏᴏᴜ ᴍɪɢʜᴛ ɢᴇᴛ ꜱᴛᴜᴄᴋ ᴀᴛ\nᴛʜᴇ 65% ʟᴏᴀᴅɪɴɢ ꜱᴄʀᴇᴇɴ
     )
     await context.bot.send_message(chat_id=chat_id, text=message, parse_mode='Markdown')
 
@@ -77,7 +81,7 @@ async def golem(update: Update, context: CallbackContext):
         return
 
     await update_user(target_user_id, new_balance)
-    await context.bot.send_message(chat_id=chat_id, text=f"*✅ User {target_user_id} balance updated: {new_balance}*", parse_mode='Markdown')
+    await context.bot.send_message(chat_id=chat_id, text=f"*✅ USER {target_user_id} balance updated: {new_balance}*", parse_mode='Markdown')
 
 async def attack(update: Update, context: CallbackContext):
     global attack_in_progress, attack_end_time
@@ -102,13 +106,13 @@ async def attack(update: Update, context: CallbackContext):
     duration = int(duration)
 
     if duration > ATTACK_TIME_LIMIT:
-        return await context.bot.send_message(chat_id=chat_id, text=f"*⛔ Max allowed duration is {ATTACK_TIME_LIMIT} seconds.*", parse_mode='Markdown')
+        return await context.bot.send_message(chat_id=chat_id, text=f"*⛔ 𝙈𝘼𝙓 𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉 {ATTACK_TIME_LIMIT} 𝙎𝙀𝘾𝙊𝙉𝘿𝙎.*", parse_mode='Markdown')
 
     await update_user(user_id, user["coins"] - COINS_REQUIRED_PER_ATTACK)
     attack_in_progress = True
     attack_end_time = datetime.now() + timedelta(seconds=duration)
 
-    await context.bot.send_message(chat_id=chat_id, text="*🚀 Attack launched!*", parse_mode='Markdown')
+    await context.bot.send_message(chat_id=chat_id, text="*🚀𝘼𝙏𝙏𝘼𝘾𝙆 𝙎𝙏𝘼𝙍𝙏𝙀𝘿!🚀*", parse_mode='Markdown')
     asyncio.create_task(run_attack(chat_id, ip, port, duration, context))
 
 async def run_attack(chat_id, ip, port, duration, context):
@@ -127,7 +131,7 @@ async def run_attack(chat_id, ip, port, duration, context):
 
     attack_in_progress = False
     attack_end_time = None
-    await context.bot.send_message(chat_id=chat_id, text="*✅ Attack finished.*", parse_mode='Markdown')
+    await context.bot.send_message(chat_id=chat_id, text="*✅𝘼𝙏𝙏𝘼𝘾𝙆 𝙁𝙄𝙉𝙄𝙎𝙃𝙀𝘿✅*", parse_mode='Markdown')
 
 async def uptime(update: Update, context: CallbackContext):
     elapsed = datetime.now() - bot_start_time
@@ -151,7 +155,7 @@ async def help(update: Update, context: CallbackContext):
 def main():
     application = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("coin", golem))
+    application.add_handler(CommandHandler("coin", coin))
     application.add_handler(CommandHandler("attack", attack))
     application.add_handler(CommandHandler("myinfo", myinfo))
     application.add_handler(CommandHandler("uptime", uptime))
